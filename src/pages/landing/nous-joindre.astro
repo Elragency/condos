@@ -1,0 +1,120 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import LatestPosts from '~/components/blog/LatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
+  <!-- Hero Widget ******************* -->
+
+
+  <Hero
+
+  >
+  
+    <Fragment slot="title">
+      PasUnCondo est toujours rejoignable!<span class="hidden lg:inline"> <br class="2xl:hidden"/> </span> <div></div>
+      <!-- <span > </span> <div class="text-accent dark:text-white highlight">24 heures sur 24</div><div class="text-accent dark:text-white highlight">7 Jours sur 7</div> <br> -->
+      <!-- <span><a href="tel:450-677-0007">Nous Appeler: (450)677-0007</a>
+      </span> <br> <br>
+      <span><a href="tel:450 926-9911">Urgence: (450)926-9911</a>
+      </span> <br> <br> -->
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">PasUnCondo.ca</span> peut vous aider à naviguer dans ce monde sombre.</span>
+      <span class="block mb-1 sm:hidden font-bold text-blue-600"></span> Nous sommes la reference en matière de ressources immobilière peu importe la taille de votre copropriétés.
+    </Fragment>
+    
+  </Hero>
+<Note></Note>
+
+  <Features
+
+    title="Pour nous joindre"
+    subtitle="Peu importe vos besoins, nous dommes disponible."
+    items={[
+      [
+        {
+          title: 'Numéro de téléphone',
+          description:
+            'Pour les heures de bureau: à confirmer',
+          icon: 'tabler:phone',
+        },
+        {
+          title: "Heures d'ouverture",
+          description:
+            "Lundi au vendredi de 8h30 à 17h00",
+          icon: 'tabler:clock',
+        },
+        {
+          title: 'PasUnCondo.ca – siège social – Brossard',
+          description:
+            '000 Taschereau',
+          icon: 'tabler:home',
+        },
+      ],
+      [
+        {
+          title: 'Numéro de téléphone (Urgences)',
+          description:
+          'Pour les urgences: à confirmer',
+          icon: 'tabler:exclamation-mark',
+        },
+        {
+          title: 'Par courriel',
+          description:
+            'elragency@gmail.com',
+          icon: 'tabler:wifi',
+        },
+        {
+          title: 'PasUnCondo.ca – Autre',
+          description:
+            'À confirmer',
+          icon: 'tabler:mountain',
+        },
+      ],
+    ]}
+  />
+
+
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    callToAction={{
+      text: 'Contactez-nous',
+      href: 'mailto:elragency@gmail.com',
+      icon: 'tabler:download',
+    }}
+  >
+    <Fragment slot="title">
+      Contactez notre équipe <br class="block sm:hidden" /><span class="sm:whitespace-nowrap"></span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Ne perdez pas de temps, <br class="hidden md:inline" /> faites affaire avec les professionels
+    </Fragment>
+  </CallToAction>
+</Layout>

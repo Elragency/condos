@@ -1,0 +1,171 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+
+
+
+import { headerData } from '~/data';
+
+const meta = {
+  title: "Qui sommes-nous",
+  description: "ITE.description",
+  dontUseTitleTemplate: true,
+};
+
+---
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+
+
+
+<Layout {meta}>
+  
+
+        <Hero
+  
+        callToAction={{ text: 'Demande de Soumission', href: '/landing/nos-forfaits#formulaire', icon: 'tabler:check' }}
+        callToAction2={{ text: 'En savoir plus', href: '#features' }}
+    
+      >
+      
+        <Fragment slot="title">
+          À propos de nous <div class="text-accent dark:text-white highlight">PasUnCondo.ca est:</div>
+        </Fragment>
+    
+        <Fragment slot="subtitle">
+          <span class="hidden sm:inline">
+            <span class="font-semibold">PasUnCondo.ca</span>  est née en 2023 d’un profond ennuie</span>
+            <br>
+            <br>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat tenetur quisquam qui illo hic et placeat quis delectus id ratione possimus vitae labore, deserunt corrupti aut cumque, facilis voluptates magni. Corrupti ab odio corporis a nesciunt laborum aspernatur soluta fugiat nemo, dignissimos dolores quis doloremque, nobis provident eum incidunt rerum.</span>
+            <br>
+            <br>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. A perspiciatis excepturi aspernatur dolorum et mollitia dolorem voluptate minima possimus veniam magnam vel nam architecto sequi, nulla officiis suscipit odio maxime eius sunt neque pariatur vitae. Ab explicabo aliquid quisquam dolores, inventore at, dolor voluptate odit pariatur, odio minima optio unde minus. Iste incidunt rerum eos, itaque similique voluptas exercitationem voluptatem placeat quas, velit harum! Repudiandae atque laboriosam amet assumenda cum? Quis blanditiis doloribus esse neque quaerat eos laudantium laboriosam, ipsam fugiat consequuntur! Nisi molestias eum vero temporibus aliquid! Ipsa possimus laboriosam quidem eveniet nesciunt assumenda id at adipisci ab aperiam?</span>
+            <br>
+            <br>
+            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita inventore, totam reiciendis adipisci repellendus, magnam iste exercitationem nihil fuga vel repudiandae. Nostrum expedita voluptate itaque officia perferendis dolore porro nisi nesciunt! Laborum, perferendis veniam deserunt consectetur, velit inventore omnis eaque autem commodi, labore dignissimos nostrum amet repellendus culpa quaerat fuga?</span>
+        </Fragment>
+
+
+
+      </Hero>  
+
+      <body>
+        <h1 id=notre-equipe></h1>
+      </body>
+<!-- 
+      <Features3
+
+      title="Notre Équipe"
+      subtitle="La Direction"
+      items={[
+        {
+          title: "Hélène Vallerand",
+          description:
+            'In general, Headers contain information that makes it easier for visitors to interact with the website.',
+          icon: 'flat-color-icons:template',
+          image: ('~/assets/images/test1.png')
+        },
+        {
+          title: 'Des outils technos',
+          description:
+            'Une plateforme web complete pour une communication et une gestion inegalee toujours a la pointe de la technologie.',
+          icon: 'flat-color-icons:gallery',
+        },
+        {
+          title: 'Des services complets',
+          description:
+            'Display your product in action and how the Features actually create a solution for your target customer.',
+          icon: 'flat-color-icons:todo-list',
+        },
+        {
+          title: 'Content',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+          icon: 'flat-color-icons:document',
+        },
+        {
+          title: 'Un departement des sinistres',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+          icon: 'flat-color-icons:advertising',
+        },
+        {
+          title: 'Un prix competitif',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+          icon: 'flat-color-icons:currency-exchange',
+        },
+        {
+          title: 'Testimonial',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+          icon: 'flat-color-icons:voice-presentation',
+        },
+        {
+          title: 'Une entreprise familial',
+          description:
+            'Un service professionel avec un climat chaleureux pour chacun de nos clients, vous devenez un membre de la famille lorsque vous choissisez PasUnCondo.ca.',
+          icon: 'flat-color-icons:business-contact',
+        },
+        {
+          title: 'Footers',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+          icon: 'icon-park:page-template',
+        },
+      ]}
+    /> -->
+
+    <body>
+      <h1 id=mission></h1>
+    </body>
+
+    <Content
+    highlight=""
+    title="Mission et Engagement"
+    items={[
+      {
+        
+        title: 'Une mission qui nous rassemble',
+        description:
+          'PasUnCondo.ca se donne comme mission de devenir la référence en matière de gestion immobilière',
+      },
+      {
+        title: 'Des outils pour réussir',
+        description:
+          'Nos employés ont comme but premier d’accompagner le conseil d’administration et les copropriétaires afin d’offrir une expérience de gestion optimale, un service personnalisé, un excellent rapport qualité-prix et des outils qui s’adaptent à vos besoins.',
+      },
+      {
+        title: 'Une vision qui va loin',
+        description:
+          'PasUnCondo.ca a comme vision d’accompagner tous les syndicats de copropriétés souhaitant être soutenus et entourés d’une équipe compétente, fiable et intègre dans ses méthodes de gestion. Nous aspirons à maintenir notre clientèle avec des valeurs d’excellence, de transparence et de respect afin de bâtir une relation à long terme. ',
+      },
+    ]}
+    image={{
+      src: import('~/assets/images/caos.jpg'),
+      alt: 'Colorful Image',
+    }}
+  >
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Une mission qui nous rassemble</h3>
+    Les informations concernant la gestion immobilière chez PasUnCondo.ca est plus qu'un simple service, c'est une passion jumelé à une volonté de réussir.
+  </Fragment>
+</Content>
+
+      
+
+</Layout>
+
+

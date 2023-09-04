@@ -1,0 +1,461 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+import { Picture } from '@astrojs/image/components';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import LatestPosts from '~/components/blog/LatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Slider from '~/components/widgets/Slider.astro';
+
+
+const statsItems = [
+  { name: 'Syndicats', value: 481 },
+  { name: 'Employes', value: 55 },
+  { name: 'Pieds Carres', value: 100300 },
+  { name: 'Portes', value: 13200 }
+];
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  callToAction?: string | CallToAction;
+  callToAction2?: string | CallToAction;
+  image?: string | any; // TODO: find HTMLElementProps
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  content = await Astro.slots.render('content'),
+  callToAction = await Astro.slots.render('callToAction'),
+  callToAction2 = await Astro.slots.render('callToAction2'),
+  image = await Astro.slots.render('image'),
+} = Astro.props;
+
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
+
+  <div id="intro" class="bg-image shadow-2-strong img-fluid ">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
+      <div class="container d-flex align-items-center justify-content-center text-center h-100">
+        <div id="opacc" class= "bg-image">
+        </div>
+      </div>
+    </div>
+
+  
+  <Hero
+    callToAction={{ text: 'Demande de Soumission', href: 'landing/nos-forfaits', icon: 'tabler:check' }}
+    callToAction2={{ text: 'En savoir plus', href: '/pasuncondo'}}
+      <div id="intro" class="bg-image shadow-2-strong img-fluid ">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
+      <div class="container d-flex align-items-center justify-content-center text-center h-100">
+        <div id="opacc" class= "bg-image">
+      </div>
+    </div>   
+    </div>    
+
+
+  >
+
+    <Fragment slot="title">
+      Un Avis Professionelle <br><span class="hidden lg:inline">Avec une Touche d'Humour <br class="2xl:hidden"/> </span> 
+      <span > </span> <div class="text-accent dark:text-white highlight">PasUnCondo.ca</div>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">Pasuncondo.ca</span> a plus de 3 ans d'expérience dans le domaine de la gestion immobilière</span>
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">PasUnCondo.ca</span> Votre source d'information en matière de gestion immobilière peu importe la taille de votre copropriétés.
+    </Fragment>
+
+
+
+  </Hero>
+      </div>
+
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    items={[
+      { name: 'Syndicats', value: '233' },
+      { name: 'Employés', value: '12' },
+      { name: 'Budgets', value: '36.3 M' },
+      { name: 'Portes', value: '9.3k' },
+    ]}
+    
+  />
+
+
+
+  <!-- Features2 Widget ************** -->
+
+  <!-- <Features2
+
+    title="Ce que Nous Offrons"
+    subtitle="Notre unique but est de nous occuper de votre propriete comme il se doit."
+    highlight="Services"
+    items={[
+      {
+        title: "35 ans d'expertise",
+        description:
+          'In general, Headers contain information that makes it easier for visitors to interact with the website.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Des outils technos',
+        description:
+          'Une plateforme web complete pour une communication et une gestion inegalee toujours a la pointe de la technologie.',
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: 'Des services complets',
+        description:
+          'Display your product in action and how the Features actually create a solution for your target customer.',
+        icon: 'flat-color-icons:todo-list',
+      },
+      {
+        title: 'Content',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Un departement des sinistres',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:advertising',
+      },
+      {
+        title: 'Un prix competitif',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:currency-exchange',
+      },
+      {
+        title: 'Testimonial',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+      {
+        title: 'Une entreprise familial',
+        description:
+          'Un service professionel avec un climat chaleureux pour chacun de nos clients, vous devenez un membre de la famille lorsque vous choissisez PasUnCondo.ca.',
+        icon: 'flat-color-icons:business-contact',
+      },
+      {
+        title: 'Footers',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'icon-park:page-template',
+      },
+    ]}
+  /> -->
+  
+<Note></Note>
+
+<!-- <section id="slider">
+  <input type="radio" name="slider" id="s1" checked>
+  <input type="radio" name="slider" id="s2">
+  <input type="radio" name="slider" id="s3">
+  <input type="radio" name="slider" id="s4">
+  <input type="radio" name="slider" id="s5">
+
+  <label for="s1" id="slide1"><img class=sl1 alt=""></label>
+  <label for="s2" id="slide2"><img class=sl2 alt=""></label>
+  <label for="s3" id="slide3"><img class=sl3 alt=""></label>
+  <label for="s4" id="slide4"><img class=sl3 alt=""></label>
+  <label for="s5" id="slide5"><img class=sl5 alt=""></label>
+</section> -->
+
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Faite affaires avec des professionnelles pour prendre soins de vos biens"
+    items={[
+      {
+        title: 'Etape #1 : <span class="font-medium">Contactez-nous</span>',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla. Praesent placerat enim ut ex tincidunt vehicula.',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Etape #2 : <span class="font-medium">Add content</em>',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla.',
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: 'Etape #3 : <span class="font-medium">Rencontrer votre gestionnaire</span>',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla. Praesent placerat enim ut ex tincidunt vehicula. Fusce sit amet dui tellus.',
+        icon: 'tabler:paint',
+      },
+      {
+        title: 'Débutons !',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: import('~/assets/images/creativity.jpg'),
+      alt: 'Steps image',
+    }}
+  />
+
+  
+
+  
+  <!-- FAQs Widget ******************* -->
+<!-- 
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Duis turpis dui, fringilla mattis sem nec, fringilla euismod neque. Morbi tincidunt lacus nec tortor scelerisque pulvinar."
+    highlight="FAQs"
+    items={[
+      [
+        {
+          question: 'What do I need to start?',
+          answer:
+            'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+        },
+        {
+          question: 'How to install the Astro + Tailwind CSS template?',
+          answer:
+            "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.",
+        },
+        {
+          question: "What's something that you don't understand?",
+          answer:
+            "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+        },
+      ],
+      [
+        {
+          question: "What's an example of when you changed your mind?",
+          answer:
+            "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+        },
+        {
+          question: 'What is something that you would like to try again?',
+          answer:
+            "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+        },
+        {
+          question: 'If you could only ask one question to each person you meet, what would that question be?',
+          answer:
+            "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+        },
+      ],
+      
+    ]}
+  /> -->
+
+
+
+
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <!-- <LatestPosts
+    title="Find out more content in our Blog"
+    information={`The blog is used to display AstroWind documentation.
+			Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
+			Astro is a very interesting technology. Thanks.
+		`}
+    postIds={[
+      'get-started-website-with-astro-tailwind-css.md',
+      'how-to-customize-astrowind-to-your-brand.md',
+      'useful-resources-to-create-websites.md',
+      'astrowind-template-in-depth.md',
+    ]}
+  /> -->
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    callToAction={{
+      text: 'Demander Une Soumission !',
+      href: '/landing/nos-forfaits#formulaire',
+      icon: 'tabler:check',
+    }}
+  >
+    <Fragment slot="title">
+      Place au <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Changement !</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Prenez soins de vos biens immobiliers: <br class="hidden md:inline" />Faites affaire avec PasUnCondo.ca !
+    </Fragment>
+  </CallToAction>
+</Layout>
+
+
+<style media="screen">
+      #intro {
+        background-image: url('~/assets/images/outre-50.png');
+        height: 100vh;
+        padding-top: 15px;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        background-position: center center;
+        z-index: -1;
+      }
+
+     
+      
+  body {
+margin: 0;
+background: #EEE;
+user-select: none;
+font-family: sans-serif;
+}
+
+
+#slider {
+position: relative;
+width: 50%;
+height: 32vw;
+margin: 150px auto;
+margin-top: 100px;
+font-family: 'Helvetica Neue', sans-serif;
+perspective: 1400px;
+transform-style: preserve-3d;
+}
+
+input[type=radio] {
+position: relative;
+visibility: hidden;
+/* top: -8%; */
+left: 50%;
+width: 18px;
+height: 18px;
+/* margin: 0 15px 0 0; */
+opacity: 0.4;
+/* transform: translateX(-83px); */
+/* cursor: pointer; */
+}
+
+
+input[type=radio]:nth-child(5) {
+margin-right: 0px;
+}
+
+input[type=radio]:checked {
+opacity: 1;
+}
+
+
+
+
+#slider label,
+#slider label img {
+position: absolute;
+width: 100%;
+height: 100%;
+left: 0;
+top: 0;
+color: white;
+font-size: 70px;
+font-weight: bold;
+border-radius: 3px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: transform 400ms ease;
+}
+
+
+
+/* Slider Functionality */
+
+/* Active Slide */
+#s1:checked ~ #slide1,
+#s2:checked ~ #slide2,
+#s3:checked ~ #slide3,
+ #s4:checked ~ #slide4,
+  #s5:checked ~ #slide5 {
+box-shadow: 0 13px 26px rgba(0,0,0, 0.3), 0 12px 6px rgba(0,0,0, 0.2);
+transform: translate3d(0%, 0, 0px);
+}
+
+/* Next Slide */
+#s1:checked ~ #slide2,
+#s2:checked ~ #slide3,
+#s3:checked ~ #slide4,
+ #s4:checked ~ #slide5,
+  #s5:checked ~ #slide1 {
+box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+transform: translate3d(20%, 0, -100px);
+}
+
+
+/* Next to Next Slide */
+#s1:checked ~ #slide3,
+#s2:checked ~ #slide4,
+#s3:checked ~ #slide5,
+ #s4:checked ~ #slide1,
+  #s5:checked ~ #slide2 {
+box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+transform: translate3d(40%, 0, -250px);
+}
+
+/* Previous to Previous Slide */
+#s1:checked ~ #slide4,
+#s2:checked ~ #slide5,
+#s3:checked ~ #slide1,
+ #s4:checked ~ #slide2,
+  #s5:checked ~ #slide3 {
+box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+transform: translate3d(-40%, 0, -250px);
+}
+
+/* Previous Slide */
+#s1:checked ~ #slide5,
+#s2:checked ~ #slide1,
+#s3:checked ~ #slide2,
+ #s4:checked ~ #slide3,
+  #s5:checked ~ #slide4 {
+box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+transform: translate3d(-20%, 0, -100px);
+}
+
+.sl1 {
+    content: url('~/assets/images/moutremont.png');
+  }
+  .sl2 {
+    content: url('~/assets/images/8500.png');
+  }
+  .sl3 {
+    content: url('~/assets/images/Courscom.png');
+  }
+  .sl4 {
+    content: url('~/assets/images/moutremont.png');
+  }
+  .sl5 {
+    content: url('~/assets/images/8500.png');
+  }
+
+</style>
